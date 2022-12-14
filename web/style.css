@@ -1,0 +1,142 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 0px 10px 0px 10px;
+    background-color: #f2f2f2;
+  }
+
+
+.button {
+    appearance: none;
+    background-color: #ff8080;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    padding: 6px 8px;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+    display:inline;
+    animation: test 2s 1;
+    animation-fill-mode: forwards;
+    margin-bottom: 2px;
+
+  }
+
+
+  .button:hover {
+    background-color: #ff5050;
+    color:white;
+
+    transition-duration: 0.6s;
+  }
+  
+  .button:disabled {
+    background-color: #FAFBFC;
+    border-color: rgba(27, 31, 35, 0.15);
+    color: #959DA5;
+    cursor: default;
+    pointer-events: none;
+    
+  }
+  
+  .button:active {
+    background-color: #ff3333;
+    box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+    transition: none 0s;
+  }
+  
+  .button:focus {
+    outline: 1px transparent;
+  }
+  
+  .button:before {
+    display: none;
+  }
+  
+  .button:-webkit-details-marker {
+    display: none;
+  }
+
+.card {
+background-color: white;
+padding: 1px 10px 10px 10px;
+border-radius: 8px;
+width:96%;
+box-shadow: 5px 5px 2px 1px #ffcccc;
+margin-bottom: 10px;  
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 40% 30% 30%;
+  grid-gap: 20px;
+}
+
+.grid-child-left {
+  color:black;
+}
+
+.grid-child-middle {
+  border-left: 0.2px solid black;
+  padding-left: 10px;
+
+  justify-content: space-between
+}
+
+.grid-child-right {
+  border-left: 0.2px solid black;
+  padding-left: 10px;
+
+}
+
+
+.tick-icon {
+
+  float: left;
+}
+.tick-icon::after {
+  --size: 1rem;
+  content: '\2713';
+
+  top: 0;
+  left: 0;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #10A19D;
+  font-size: var(--size);
+  --dimension: calc(1.5 * var(--size));
+  width: var(--dimension);
+  height: var(--dimension);
+  color: #ffffff;
+  float: left;
+  margin-top: 4px;
+  margin-left: 4px;
+}
+
+#button-1 {
+  float: left;
+}
+
+#anzahl_studierende {
+  clear: both;
+  padding-top: 10px;
+}
+
+#reset-knopf{
+  float:right;
+}
+

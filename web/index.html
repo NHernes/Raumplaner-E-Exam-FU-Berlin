@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Raumplaner</title>
+        <link rel="stylesheet" href="style.css">        
+    </head>
+
+    <body>
+        <h1>Raumplaner E-Exam</h1>
+        <hr>
+        <div class="card">
+          <h2>Excel-Import</h2>
+          <button class="button" id="button-1" onclick=dateipicker()>CSV/Excel auswählen</button> <div id="checkmark" class="leer"></div>
+          <p id="anzahl_studierende">Anzahl Studierender in TN-Liste:</p>
+        </div>
+
+        <div class="card">
+          <h2>Konfiguration</h2>
+
+          <div class="grid-container">
+
+            <div class="grid-child-left">
+              <table id=belegung>
+                  <tr id="d1">
+                    <td id="durchgang" value="Durchgang 1">Durchgang 1: </td>
+                    <td><INPUT TYPE="Checkbox" ID="eec1_1" Value="EEC1"><LABEL FOR="eec1_1">EEC1</LABEL>
+                      <INPUT TYPE="Checkbox" ID="eec2_1" Value="EEC2"><LABEL FOR="eec2_1">EEC2</LABEL>
+                    </td>
+                  </tr>
+                </table>
+            </div>
+
+            <div class="grid-child-middle">
+              <button class="button" onclick=addrow() disabled>Durchgang hinzufügen</button>
+              <button class="button" onclick=deleterow() disabled>Durchgang löschen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            </div>
+
+            <div class="grid-child-right">
+              <p style="margin-bottom: 5px"><label for="auswahl_puffer">Puffer pro Raum:</label></p>
+
+              <select name="auswahl_puffer" id="auswahl_puffer">
+                <option value="0">0</option>
+
+              </select> 
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Verteilung</h2>
+          <button class="button" onclick=get_configuration() disabled>Verteilung vornehmen</button>
+          <button id="reset-knopf" class="button" onclick=reset()>Zurücksetzen</button>
+        </div>
+
+        
+    </body>
+
+
+
+
+
+
+
+    <script type="text/javascript", src="/eel.js"></script>
+    <script src="index.js"></script>
+
+</html>
