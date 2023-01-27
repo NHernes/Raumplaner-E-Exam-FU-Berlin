@@ -2,7 +2,8 @@
 <html>
     <head>
         <title>Raumplaner</title>
-        <link rel="stylesheet" href="style.css">        
+        <link rel="stylesheet" href="style.css">     
+         
     </head>
 
     <body>
@@ -49,8 +50,23 @@
 
         <div class="card">
           <h2>Verteilung</h2>
-          <button class="button" onclick=get_configuration() disabled>Verteilung vornehmen</button>
-          <button id="reset-knopf" class="button" onclick=reset()>Zurücksetzen</button>
+          <div class="grid-container2">
+
+            <div class="grid-child-left2">
+              <button class="button" onclick=get_configuration() disabled>Verteilung vornehmen</button>
+              <button id="reset-knopf" class="button" onclick=reset()>Zurücksetzen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            </div>
+
+            <div class="grid-child-middle2">
+              <div  id="emailtext" contenteditable="true"></div>
+            </div>
+
+            <div class="grid-child-right2">
+              <button class="button" id="copybutton" onclick=copy_to_clipboard() disabled>&#x1f4cb; kopieren</button>
+              
+            
+            </div>
+          </div>
         </div>
 
         

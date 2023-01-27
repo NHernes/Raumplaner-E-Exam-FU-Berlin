@@ -13,6 +13,7 @@ async function dateipicker() {
         document.querySelectorAll('.button').forEach(elem => {
             elem.disabled = false;
           });
+        document.getElementById("copybutton").disabled=true
     }
 }
 
@@ -81,10 +82,18 @@ async function get_configuration() {
 
 async function verteilung(konfiguration,anzahl_studierende,puffergröße){
     ergebnis = await eel.verteilung_python(konfiguration,anzahl_studierende,puffergröße)()
+    
     if (ergebnis===false) {
-        alert("Die Zahl der Teilnehmenden übersteigt die ausgewählten Räume. \n Wählen Sie mehr Räume aus oder fügen Sie weitere Durchgänge hinzu!")
+        alert("Die Zahl der Teilnehmenden übersteigt die ausgewählten Räume. \nWählen Sie mehr Räume aus oder fügen Sie weitere Durchgänge hinzu!")
+    }
+    else if (ergebnis===true) {
+        alert("Zur Verhinderung von Nachnamenüberschneidungen in verschiedenen Räumen wurden Plätze freigelassen: Anzahl der Teilnehmenden übersteigt nun die Anzahl verfügbarer Plätze. \nWählen Sie mehr Räume aus oder fügen Sie weitere Durchgänge hinzu!")
     }
     else {
+        document.getElementById("emailtext").innerHTML=ergebnis
+        if (ergebnis!="") {
+            document.getElementById("copybutton").disabled=false
+        }
         confirm("CSV-Output erstellt")
     }
 }
@@ -102,6 +111,26 @@ async function populate_puffer() {
     }
 }
 populate_puffer()
+
+function copy_to_clipboard(){
+    var Text = document.getElementById("emailtext").innerHTML;
+  
+    /* Select the text inside text area. Text.select();*/
+    
+    Text = Text.replace(/<style([\s\S]*?)<\/style>/gi, '');
+    Text = Text.replace(/<script([\s\S]*?)<\/script>/gi, '');
+    Text = Text.replace(/<\/div>/ig, '\n');
+    Text = Text.replace(/<\/li>/ig, '\n');
+    Text = Text.replace(/<li>/ig, '- ');
+    Text = Text.replace(/<\/ul>/ig, '\n');
+    Text = Text.replace(/<\/p>/ig, '\n');
+    Text = Text.replace(/<br\s*[\/]?>/gi, "\n");
+    Text = Text.replace(/<[^>]+>/ig, "");
+    Text = Text.replace(" -", "-");
+    /*  */
+    navigator.clipboard.writeText(Text);
+    document.getElementById("copybutton").innerHTML="&#x2713; kopiert &nbsp; &nbsp;"
+}
 
 
 async function reset() {
